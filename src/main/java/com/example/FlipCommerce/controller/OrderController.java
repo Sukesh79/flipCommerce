@@ -29,12 +29,4 @@ public class OrderController {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
-    // get top 5 orders with highest order value
-
-    // all the orders of a particular customer
-
-    // top 5 orders of a customer based on cost
-
-    // top 5 recently ordered orders of a customer
 }

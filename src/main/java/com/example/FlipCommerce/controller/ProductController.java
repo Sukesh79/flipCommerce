@@ -40,19 +40,5 @@ public class ProductController {
         return new ResponseEntity(productResponseDtos,HttpStatus.FOUND);
     }
 
-    // get all the products of a category
-
-    // get all the products in a category who have price greater than 500
-
-    // get the top 5 cheapest products in a category
-
-    // get top 5 costliest products in a category
-
-    // get all the products of seller based on emailid
-
-    // get all the out of stock products for a particular catgeory
-
-    // send an email to the seller of the product if the product is out os stock.
-
 
 }

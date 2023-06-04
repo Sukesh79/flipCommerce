@@ -44,16 +44,4 @@ public class SellerController {
         return new ResponseEntity(products, HttpStatus.FOUND);
     }
 
-
-    // get all the sellers who sell products of a particular category
-
-    // get all the products sold by a seller in a category
-
-    // seller with highest number of products
-
-    // seller with minimum number of products
-
-    // seller(s) selling the costliest product
-
-    // seller(s) selling the cheapest product
 }
