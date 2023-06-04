@@ -1,0 +1,45 @@
+package com.example.FlipCommerce.controller;
+
+import com.example.FlipCommerce.Enum.CardType;
+import com.example.FlipCommerce.dto.RequestDto.CardRequestDto;
+import com.example.FlipCommerce.dto.ResponseDto.CardResponseDto;
+import com.example.FlipCommerce.exception.CustomerNotFoundException;
+import com.example.FlipCommerce.service.CardService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/card")
+public class CardController {
+
+    @Autowired
+    CardService cardService;
+
+    @PostMapping("/add")
+    public ResponseEntity addCard(@RequestBody CardRequestDto cardRequestDto){
+
+        try{
+            CardResponseDto cardResponseDto = cardService.addCard(cardRequestDto);
+            return new ResponseEntity(cardResponseDto, HttpStatus.CREATED);
+        }
+        catch (CustomerNotFoundException e){
+            return new ResponseEntity(e.getMessage(),HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/getCardTypeMax")
+    public ResponseEntity getCardTypeMax(){
+        List<CardType> cardTypeList = cardService.getCardTypeMax();
+        return new ResponseEntity(cardTypeList, HttpStatus.FOUND);
+    }
+
+    @GetMapping("/getCardTypeMin")
+    public ResponseEntity getCardTypeMin(){
+        List<CardType> cardTypeList = cardService.getCardTypeMin();
+        return new ResponseEntity(cardTypeList, HttpStatus.FOUND);
+    }
+}
